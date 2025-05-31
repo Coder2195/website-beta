@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@import "tailwindcss" important;
+
+@theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Sans", serif;
+  --font-mono: "Space Mono", monospace;
+
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee2: marquee2 25s linear infinite;
+  --animate-marquee3: marquee3 25s linear infinite;
+  --animate-marquee4: marquee4 25s linear infinite;
+  --animate-blink: blink 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+
+  --color-mocha-rosewater: #f5e0dc;
+  --color-mocha-flamingo: #f2cdcd;
+  --color-mocha-pink: #f5c2e7;
+  --color-mocha-mauve: #cba6f7;
+  --color-mocha-red: #f38ba8;
+  --color-mocha-maroon: #eba0ac;
+  --color-mocha-peach: #fab387;
+  --color-mocha-yellow: #f9e2af;
+  --color-mocha-green: #a6e3a1;
+  --color-mocha-teal: #94e2d5;
+  --color-mocha-sky: #89dceb;
+  --color-mocha-sapphire: #74c7ec;
+  --color-mocha-blue: #89b4fa;
+  --color-mocha-lavender: #b4befe;
+  --color-mocha-text: #cdd6f4;
+  --color-mocha-subtext1: #bac2de;
+  --color-mocha-subtext0: #a6adc8;
+  --color-mocha-overlay2: #9399b2;
+  --color-mocha-overlay1: #7f849c;
+  --color-mocha-overlay0: #6c7086;
+  --color-mocha-surface2: #585b70;
+  --color-mocha-surface1: #45475a;
+  --color-mocha-surface0: #313244;
+  --color-mocha-base: #1e1e2e;
+  --color-mocha-mantle: #181825;
+  --color-mocha-crust: #11111b;
+
+  --border-width-1: 1px;
+  --border-width-0_5: 0.5px;
+
+  --breakpoint-xs: 480px;
+  --breakpoint-xxs: 320px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 800px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1500px;
+
+  --spacing: 0.2rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-mocha-overlay0, currentcolor);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes marquee3 {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marquee4 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+:root {
+  color-scheme: dark;
+  @apply text-[20px];
+}
+
+* {
+  @apply border-mocha-overlay0 tracking-tight;
+}
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}
+
+body {
+  @apply bg-mocha-base text-mocha-text font-sans;
+}
+
+.bordered,
+.button {
+  @apply border-0.5 border-mocha-overlay0;
+}
+
+.button {
+  -webkit-touch-callout: none;
+  @apply bg-mocha-surface0 hover:border-mocha-lavender hover:bg-mocha-overlay0/50 active:bg-mocha-overlay0/40 active:border-mocha-mauve transition-colors duration-300;
+}
+
+.underline-link {
+  background:
+    linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #cba6f7, #b4befe);
+  background-size:
+    100% 0.1em,
+    0 0.1em;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  @apply transition-all duration-500;
+}
+
+.underline-link:hover,
+.underline-link:focus {
+  background-size:
+    0 0.1em,
+    100% 0.1em;
+  @apply text-mocha-lavender;
+}
