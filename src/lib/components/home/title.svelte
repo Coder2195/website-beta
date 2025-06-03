@@ -1,23 +1,38 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import type { LoadStatus } from "$lib/types";
+  import { getContext, onDestroy } from "svelte";
 
   const target = "Coder2195";
   let text = $state("");
+  let interval: number;
+  let i = -1;
 
-  let i = 0;
-  let interval = setInterval(() => {
-    if (i < target.length) {
-      text += target[i];
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 150);
+  let loadStatus = getContext<LoadStatus>("loadStatus");
 
-  onDestroy(() => {
-    clearInterval(interval);
-    console.log("Interval cleared");
+  $effect(() => {
+    console.log("Transitioning:", loadStatus.transitioning);
+    if (loadStatus.transitioning) return;
+    interval = setInterval(() => {
+      if (i < 0) {
+        i++;
+        return;
+      }
+      if (i < target.length) {
+        text += target[i];
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 150);
+
+    return cleanUp;
   });
+
+  function cleanUp() {
+    clearInterval(interval);
+  }
+
+  onDestroy(cleanUp);
 </script>
 
 <h1 class=" flex flex-wrap items-center gap-3 py-4">
