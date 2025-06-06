@@ -39,24 +39,24 @@
   });
 </script>
 
-<span class="{show ? 'opacity-100' : 'opacity-0'} duration-500">
-  <a
-    {href}
-    class="group block font-extralight text-2xl p-2 my-4 rounded-md button {!ready
-      ? 'pointer-events-none'
-      : 'pointer-events-auto'}"
+<a
+  {href}
+  class="group block font-extralight text-2xl p-2 my-4 rounded-md button {!ready
+    ? 'pointer-events-none'
+    : 'pointer-events-auto'} {show
+    ? 'opacity-100'
+    : 'opacity-0'} transition-all duration-500"
+>
+  <div class="flex items-center">
+    <Icon
+      icon="ion:chevron-forward-sharp"
+      class="w-0 h-6 group-hover:w-6 transition-[width] duration-300"
+    />
+    <div class="flex-1">{name}</div>
+  </div>
+  <div
+    class="max-h-0 w-full font-normal text-base group-hover:max-h-12 transition-all duration-500 overflow-hidden"
   >
-    <div class="flex items-center">
-      <Icon
-        icon="ion:chevron-forward-sharp"
-        class="w-0 h-6 group-hover:w-6 transition-[width] duration-300"
-      />
-      <div class="flex-1">{name}</div>
-    </div>
-    <div
-      class="max-h-0 w-full font-normal text-base group-hover:max-h-12 transition-all duration-500 overflow-hidden"
-    >
-      {description}
-    </div>
-  </a>
-</span>
+    {description}
+  </div>
+</a>
