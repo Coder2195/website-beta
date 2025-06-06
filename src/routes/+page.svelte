@@ -1,7 +1,8 @@
 <script lang="ts">
   import HomeLink from "$lib/components/home/home-link.svelte";
+  import SocialLink from "$lib/components/home/social-link.svelte";
   import Title from "$lib/components/home/title.svelte";
-  import { NAV_LINKS } from "$lib/links";
+  import { NAV_LINKS, SOCIAL_LINKS } from "$lib/links";
 </script>
 
 <main>
@@ -11,7 +12,13 @@
   {#each NAV_LINKS.slice(1) as link, i}
     <HomeLink {link} idx={i} />
   {/each}
-  <a href="/another" class="text-blue-500 hover:underline">
-    Go to another page
-  </a>
+
+  <div>
+    <h3>Reach Out.</h3>
+    <div class="flex flex-wrap items-center my-4 gap-4">
+      {#each SOCIAL_LINKS as social, i}
+        <SocialLink {social} idx={i} />
+      {/each}
+    </div>
+  </div>
 </main>

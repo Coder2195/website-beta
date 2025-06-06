@@ -23,7 +23,7 @@
       } else {
         clearInterval(interval);
       }
-    }, 150);
+    }, 100);
 
     return cleanUp;
   });

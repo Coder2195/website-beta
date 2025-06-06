@@ -36,3 +36,32 @@ export const NAV_LINKS: NavLink[] = [
     tooltip: "Oh, uh this is just my yapping space. 🙃",
   },
 ];
+
+export type Social = {
+  name: string;
+  url: string;
+  icon: string;
+};
+
+export const SOCIAL_LINKS: Social[] = [
+  {
+    name: "GitHub",
+    url: "https://github.com/coder2195text/",
+    icon: "fa:github",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@coder2195text",
+    icon: "fa6-brands:youtube",
+  },
+  {
+    name: "Reddit",
+    url: "https://www.reddit.com/user/coder2195",
+    icon: "fa:reddit-alien",
+  },
+  {
+    name: "Email",
+    url: "mailto:coder2195mail@gmail.com",
+    icon: "fa6-regular:envelope-open",
+  },
+];

@@ -1,8 +1,5 @@
 <script lang="ts">
   import type { NavLink } from "$lib/links";
-  import { type LoadStatus } from "$lib/types";
-  import { getContext } from "svelte";
-  import { fade } from "svelte/transition";
 
   import Icon from "@iconify/svelte";
 
@@ -32,7 +29,7 @@
       () => {
         ready = true;
       },
-      idx * 200 + 1800 + 600
+      idx * 200 + 1800 + 300
     );
 
     return () => {

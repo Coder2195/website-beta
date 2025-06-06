@@ -4,6 +4,7 @@
   import { setContext } from "svelte";
   import Splash from "$lib/components/ui/splash.svelte";
   import type { LoadStatus } from "$lib/types";
+  import Navbar from "$lib/components/ui/navbar.svelte";
 
   let { children, data } = $props();
 
@@ -24,6 +25,7 @@
   setContext("loadStatus", loadStatus);
 </script>
 
+<Navbar />
 {#if !loadStatus.mounted}
   <Splash />
 {:else}
