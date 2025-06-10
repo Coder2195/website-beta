@@ -1,7 +1,7 @@
 <script lang="ts">
-  import HomeLink from "$lib/components/home/home-link.svelte";
-  import SocialLink from "$lib/components/home/social-link.svelte";
-  import Title from "$lib/components/home/title.svelte";
+  import HomeLink from "@/components/home/home-link.svelte";
+  import SocialLink from "@/components/home/social-link.svelte";
+  import Title from "@/components/home/title.svelte";
   import { NAV_LINKS, SOCIAL_LINKS } from "$lib/links";
 </script>
 

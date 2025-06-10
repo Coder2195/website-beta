@@ -2,9 +2,9 @@
   import { fade } from "svelte/transition";
   import "../app.css";
   import { setContext } from "svelte";
-  import Splash from "$lib/components/ui/splash.svelte";
+  import Splash from "@/components/ui/splash.svelte";
   import type { LoadStatus } from "$lib/types";
-  import Navbar from "$lib/components/ui/navbar.svelte";
+  import Navbar from "@/components/ui/navbar.svelte";
 
   let { children, data } = $props();
 
