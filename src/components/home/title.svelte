@@ -4,7 +4,7 @@
 
   const target = "Coder2195";
   let text = $state("");
-  let interval: number;
+  let interval: ReturnType<typeof setInterval>;
   let i = -1;
 
   let loadStatus = getContext<LoadStatus>("loadStatus");
@@ -35,7 +35,7 @@
   onDestroy(cleanUp);
 </script>
 
-<h1 class=" flex flex-wrap items-center gap-3 py-4">
+<h1 class=" flex flex-wrap items-center gap-3">
   Hello, I&apos;m{" "}
   <span
     class="border-mocha-mauve bg-mocha-mantle rounded-lg border-4 p-2 font-mono text-5xl"

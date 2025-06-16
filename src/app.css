@@ -195,3 +195,7 @@ body {
     100% 0.1em;
   @apply text-mocha-lavender;
 }
+
+main {
+  @apply my-6;
+}

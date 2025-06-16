@@ -1,33 +1,36 @@
 <script lang="ts">
   import type { ProjectPreview } from "@/lib/graphql";
-  import type { ProjectType } from "@/lib/graphql/generated/types";
+  import { PROJECT_TYPE_MAP } from "@/lib/project";
   import Icon from "@iconify/svelte";
   import { Image } from "@unpic/svelte";
 
   let {
     project,
+    index,
   }: {
+    index: number;
     project: ProjectPreview;
   } = $props();
 
-  const PROJECT_TYPE_MAP: {
-    [key in ProjectType]: {
-      icon: string;
-    };
-  } = {
-    coding: {
-      icon: "famicons:code-slash",
-    },
-    video: {
-      icon: "material-symbols:video-library-outline-rounded",
-    },
-    other: {
-      icon: "octicon:project-roadmap-24",
-    },
-  };
+  let show = $state(false);
+  $effect(() => {
+    const timeout = setTimeout(
+      () => {
+        show = true;
+      },
+      index * 500 + 500
+    );
+
+    return () => clearTimeout(timeout);
+  });
 </script>
 
-<a class="button rounded-lg overflow-hidden" href="/projects/${project.slug}">
+<a
+  class="button rounded-lg overflow-hidden transition-all {show
+    ? 'opacity-100 h-full'
+    : 'opacity-0 h-0'} duration-500"
+  href="/projects/{project.slug}"
+>
   <figure class="aspect-video relative overflow-hidden">
     <Image
       src={project.coverImage?.url || "https://picsum.photos/800/450"}

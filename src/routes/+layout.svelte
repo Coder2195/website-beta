@@ -6,6 +6,10 @@
   import type { LoadStatus } from "$lib/types";
   import Navbar from "@/components/ui/navbar.svelte";
 
+  import { MetaTags, deepMerge } from "svelte-meta-tags";
+
+  import { page } from "$app/state";
+
   let { children, data } = $props();
 
   $effect(() => {
@@ -23,8 +27,11 @@
   });
 
   setContext("loadStatus", loadStatus);
+
+  let metaTags = $derived(deepMerge(data.baseMetaTags, page.data.pageMetaTags));
 </script>
 
+<MetaTags {...metaTags} />
 <Navbar />
 {#if !loadStatus.mounted}
   <Splash />

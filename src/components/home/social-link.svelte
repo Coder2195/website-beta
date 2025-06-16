@@ -3,12 +3,13 @@
 
   import Icon from "@iconify/svelte";
 
-  let props: {
+  let {
+    social,
+    idx,
+  }: {
     social: Social;
     idx: number;
   } = $props();
-
-  const { social, idx } = props;
 
   let show = $state(false);
 

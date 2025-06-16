@@ -7,7 +7,7 @@
 </script>
 
 <main>
-  <h1 class="py-4 flex gap-3 items-center flex-wrap">Projects</h1>
+  <h1>Projects</h1>
   <div class="my-4 mb-8">Some of the stuff I have been working on...</div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {#each data.projects.sort((a, b) => {
@@ -15,8 +15,8 @@
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return new Date(b.date).getTime() - new Date(a.date).getTime();
-    }) as project}
-      <ProjectCard {project} />
+    }) as project, index}
+      <ProjectCard {project} {index} />
     {/each}
   </div>
 </main>
