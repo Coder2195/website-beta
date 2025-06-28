@@ -197,5 +197,5 @@ body {
 }
 
 main {
-  @apply my-6;
+  @apply my-20 m-2;
 }

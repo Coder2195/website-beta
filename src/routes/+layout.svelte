@@ -38,7 +38,7 @@
 {:else}
   {#key data.pathname}
     <div
-      class="mx-auto h-full w-full max-w-5xl overflow-hidden overflow-x-auto p-2 pt-16"
+      class="mx-auto h-full w-full max-w-5xl relative overflow-hidden overflow-x-auto"
       in:fade={{ duration: 300, delay: 400 }}
       out:fade={{ duration: 300 }}
       onintrostart={() => {

@@ -20,44 +20,38 @@
   let loadStatus = getContext<LoadStatus>("loadStatus");
 </script>
 
-{#if loadStatus.mounted}
-  <div
-    class="fixed w-full p-2 top-0 z-40"
-    in:fade={{
-      duration: 700,
-    }}
+<div
+  class="fixed w-full p-2 top-0 z-40"
+  in:fade={{
+    duration: 700,
+  }}
+>
+  <nav
+    class="w-full max-w-5xl bordered mx-auto p-2 rounded-lg flex overflow-hidden items-center bg-mocha-base/50 backdrop-blur-md select-none {loadStatus.mounted
+      ? 'scale-x-100 opacity-100'
+      : 'scale-x-0 opacity-0'} transition-all duration-700 ease-out delay-500"
   >
-    <nav
-      in:scale={{
-        start: 2,
-        duration: 700,
-        easing: backOut,
-        delay: 500,
-      }}
-      class="w-full max-w-5xl bordered mx-auto p-2 rounded-lg flex overflow-hidden items-center bg-mocha-base/50 backdrop-blur-md select-none"
-    >
-      <a href="/">
-        <Image
-          src="/icon.png"
-          width={40}
-          height={40}
-          alt=""
-          class="w-10 h-10 rounded-md bordered"
-        />
-      </a>
-      <div class="flex flex-1 justify-end">
-        {#each NAV_LINKS as link, idx}
-          <a
-            href={link.href}
-            class="flex gap-1 justify-end items-center button bg-transparent p-1 m-1 rounded-md"
-          >
-            <Icon icon={link.icon} class="w-5 h-5" />
-            <span class="text-sm hidden xs:inline-block">
-              {link.name}
-            </span>
-          </a>
-        {/each}
-      </div>
-    </nav>
-  </div>
-{/if}
+    <a href="/">
+      <Image
+        src="/icon.png"
+        width={40}
+        height={40}
+        alt=""
+        class="w-10 h-10 rounded-md bordered"
+      />
+    </a>
+    <div class="flex flex-1 justify-end">
+      {#each NAV_LINKS as link, idx}
+        <a
+          href={link.href}
+          class="flex gap-1 justify-end items-center button bg-transparent p-1 m-1 rounded-md"
+        >
+          <Icon icon={link.icon} class="w-5 h-5" />
+          <span class="text-sm hidden xs:inline-block">
+            {link.name}
+          </span>
+        </a>
+      {/each}
+    </div>
+  </nav>
+</div>
