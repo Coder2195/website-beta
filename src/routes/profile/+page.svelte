@@ -1,13 +1,14 @@
 <script lang="ts">
   import Cover from "@/components/profile/cover.svelte";
+  import Details from "@/components/profile/details.svelte";
   import type { Component } from "svelte";
 
   const TABS = [
     ["cover", Cover],
-    ["cover2", Cover],
-    ["cover3", Cover],
-    ["cover4", Cover],
-    ["cover5", Cover],
+    ["cover2", Details],
+    ["cover3", Details],
+    ["cover4", Details],
+    ["cover5", Details],
     // Add other tabs here as needed
   ] as const;
   let currentTab = $state(0);

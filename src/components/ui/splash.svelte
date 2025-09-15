@@ -4,6 +4,8 @@
   import { getContext } from "svelte";
   import { fade } from "svelte/transition";
 
+  import icon from "$assets/icon.png";
+
   let loadStatus = getContext<LoadStatus>("loadStatus");
 </script>
 
@@ -20,7 +22,7 @@
   }}
 >
   <Image
-    src="/favicon.png"
+    src={icon}
     layout="fixed"
     width={96}
     height={96}

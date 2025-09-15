@@ -129,7 +129,7 @@
 
 :root {
   color-scheme: dark;
-  @apply text-[20px];
+  @apply sm:text-[18px] md:text-[20px] lg:text-[22px];
 }
 
 * {

@@ -2,7 +2,8 @@
   import type { ProjectPreview } from "@/lib/graphql";
   import { PROJECT_TYPE_MAP } from "@/lib/project";
   import Icon from "@iconify/svelte";
-  import { Image } from "@unpic/svelte";
+  import { Image } from "@unpic/svelte/base";
+  import { transform } from "unpic/providers/hygraph";
 
   let {
     project,
@@ -33,9 +34,12 @@
 >
   <figure class="aspect-video relative overflow-hidden">
     <Image
-      src={project.coverImage?.url || "https://picsum.photos/800/450"}
+      src={project.coverImage?.url}
       alt={project.title}
       fill
+      transformer={transform}
+      width={800}
+      height={450}
       class="object-cover object-center"
     />
   </figure>

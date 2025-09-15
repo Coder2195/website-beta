@@ -2,28 +2,24 @@
   import { NAV_LINKS } from "$lib/links";
   import { type LoadStatus } from "$lib/types";
   import Icon from "@iconify/svelte";
-  import { Image } from "@unpic/svelte";
+  import { Image } from "@unpic/svelte/base";
   import { getContext } from "svelte";
-  import {
-    backOut,
-    bounceIn,
-    bounceInOut,
-    bounceOut,
-    elasticIn,
-    elasticInOut,
-    elasticOut,
-    sineIn,
-    sineOut,
-  } from "svelte/easing";
   import { fade, scale } from "svelte/transition";
+  import icon from "$assets/icon.png";
 
   let loadStatus = getContext<LoadStatus>("loadStatus");
+
+  let {
+    pathname,
+  }: {
+    pathname: string;
+  } = $props();
 </script>
 
 <div
   class="fixed w-full p-2 top-0 z-40"
   in:fade={{
-    duration: 700,
+    duration: 500,
   }}
 >
   <nav
@@ -32,8 +28,8 @@
       : 'scale-x-0 opacity-0'} transition-all duration-700 ease-out delay-500"
   >
     <a href="/">
-      <Image
-        src="/icon.png"
+      <img
+        src={icon}
         width={40}
         height={40}
         alt=""
@@ -44,7 +40,12 @@
       {#each NAV_LINKS as link, idx}
         <a
           href={link.href}
-          class="flex gap-1 justify-end items-center button bg-transparent p-1 m-1 rounded-md"
+          class="flex gap-1 justify-end items-center button bg-transparent p-1 m-1 rounded-md {(pathname ==
+            '/' &&
+            link.href == '/') ||
+          (link.href != '/' && pathname.startsWith(link.href))
+            ? 'not-hover:border-mocha-lavender'
+            : ''}"
         >
           <Icon icon={link.icon} class="w-5 h-5" />
           <span class="text-sm hidden xs:inline-block">

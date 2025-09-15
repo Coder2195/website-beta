@@ -31,14 +31,27 @@
   let metaTags = $derived(deepMerge(data.baseMetaTags, page.data.pageMetaTags));
 </script>
 
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
+
 <MetaTags {...metaTags} />
-<Navbar />
+<Navbar pathname={data.pathname} />
 {#if !loadStatus.mounted}
   <Splash />
 {:else}
   {#key data.pathname}
     <div
-      class="mx-auto h-full w-full max-w-5xl relative overflow-hidden overflow-x-auto"
+      class="mx-auto h-[100dvh] w-[100dvw] max-w-5xl"
       in:fade={{ duration: 300, delay: 400 }}
       out:fade={{ duration: 300 }}
       onintrostart={() => {
