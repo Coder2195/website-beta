@@ -4,6 +4,7 @@ import { GET_PROJECT, hygraph } from "@/lib/graphql";
 import { MetaTagsProps, OpenGraph, Twitter } from "svelte-meta-tags";
 import { addQueryParams } from "@/lib/url";
 import { PROJECT_TYPE_MAP } from "@/lib/project";
+import type { Config } from "@sveltejs/adapter-vercel";
 
 export const load: PageLoad = async ({ params }) => {
   const { project } = await hygraph.request(GET_PROJECT, {
@@ -60,4 +61,10 @@ export const load: PageLoad = async ({ params }) => {
   };
 
   return { project, pageMetaTags };
+};
+
+export const config: Config = {
+  isr: {
+    expiration: 60, // revalidate every 60 seconds
+  },
 };
