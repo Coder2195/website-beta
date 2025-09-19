@@ -16,7 +16,7 @@ export const load: LayoutLoad = async ({ url }) => {
       siteName: "Coder2195",
       images: [
         {
-          url: "/favicon.ico",
+          url: "/favicon.png",
           alt: "Coder2195 Icon",
           width: 96,
           height: 96,
