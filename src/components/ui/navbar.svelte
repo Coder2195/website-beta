@@ -6,6 +6,7 @@
   import { getContext } from "svelte";
   import { fade, scale } from "svelte/transition";
   import icon from "$assets/icon.png";
+  import { optimize } from "@/lib/image";
 
   let loadStatus = getContext<LoadStatus>("loadStatus");
 
@@ -29,7 +30,7 @@
   >
     <a href="/">
       <img
-        src={icon}
+        srcset={optimize(icon)}
         width={40}
         height={40}
         alt=""

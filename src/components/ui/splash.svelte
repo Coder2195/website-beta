@@ -5,6 +5,7 @@
   import { fade } from "svelte/transition";
 
   import icon from "$assets/icon.png";
+  import { optimize } from "@/lib/image";
 
   let loadStatus = getContext<LoadStatus>("loadStatus");
 </script>
@@ -21,12 +22,11 @@
     console.log("Splash intro end");
   }}
 >
-  <Image
-    src={icon}
-    layout="fixed"
+  <img
+    srcset={optimize(icon)}
     width={96}
     height={96}
     alt=""
-    class="rounded-full animate-pulse"
+    class="rounded-full animate-pulse fixed"
   />
 </div>

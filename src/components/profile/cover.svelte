@@ -13,7 +13,7 @@
     ? { duration: 500, delay: 100, y: -200, opacity: 0 }
     : { duration: 500, delay: 100, y: 200, opacity: 0 }}
 >
-  <h1 class="my-6">hi there! want to learn more about me?</h1>
+  <h1 class="my-6">Hi There!</h1>
 
   <h6 class="text-mocha-overlay0 animate-pulse">(scroll to continue)</h6>
 </div>

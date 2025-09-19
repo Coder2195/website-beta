@@ -18,7 +18,7 @@
 
 <button
   type="button"
-  class="w-full overflow-clip h-screen block"
+  class="w-full overflow-clip h-screen block relative"
   {disabled}
   onwheel={(e) => {
     // Prevent scrolling when the button is clicked

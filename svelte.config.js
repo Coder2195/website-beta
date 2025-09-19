@@ -13,12 +13,15 @@ const config = {
     // See https://svelte.dev/docs/kit/adapters for more information about adapters.
     adapter: adapter({
       images: {
-        sizes: [
-          16, 32, 48, 64, 96, 128, 256, 384, 512, 640, 750, 828, 1080, 1200,
-        ],
+        sizes: [480, 640, 960, 1080, 1280],
         formats: ["image/avif", "image/webp"],
         minimumCacheTTL: 300,
-        domains: ["coder2195.dev", "beta.coder2195.dev", "www.coder2195.dev"],
+        domains: [
+          "coder2195.dev",
+          "beta.coder2195.dev",
+          "www.coder2195.dev",
+          "us-east-1.graphassets.com",
+        ],
       },
     }),
     alias: {

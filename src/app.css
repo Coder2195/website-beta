@@ -186,7 +186,8 @@ body {
 }
 
 .underline-link:hover,
-.underline-link:focus {
+.underline-link:focus,
+.underline-link-active {
   background-size:
     0 0.1em,
     100% 0.1em;
