@@ -21,7 +21,7 @@
 
 <button
   type="button"
-  class="w-full overflow-clip h-screen block relative"
+  class="w-full overflow-clip h-[100dvh] block relative"
   {disabled}
   onpointerdown={(e) => {
     if (disabled) return;
@@ -30,6 +30,7 @@
   }}
   onpointermove={(e) => {
     if (disabled || !touched) return;
+    e.preventDefault();
     const newPos = [e.clientX, e.clientY];
     const deltaY = newPos[1] - touchY;
     if (deltaY < -50) {
