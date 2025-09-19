@@ -16,10 +16,10 @@ export const load: LayoutLoad = async ({ url }) => {
       siteName: "Coder2195",
       images: [
         {
-          url: "/icon.png",
+          url: "/favicon.png",
           alt: "Coder2195 Icon",
-          width: 128,
-          height: 128,
+          width: 96,
+          height: 96,
         },
       ],
     },
