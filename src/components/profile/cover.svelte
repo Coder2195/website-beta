@@ -15,5 +15,5 @@
 >
   <h1 class="my-6">Hi There!</h1>
 
-  <h6 class="text-mocha-overlay0 animate-pulse">(scroll to continue)</h6>
+  <h6 class="text-mocha-overlay0 animate-pulse">(scroll down to continue)</h6>
 </div>

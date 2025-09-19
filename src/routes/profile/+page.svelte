@@ -14,16 +14,52 @@
   let currentTab = $state(0);
   let disabled = $state(false);
   let direction: "up" | "down" = $state("down");
+
+  let touched = $state(false);
+  let touchY = 0;
 </script>
 
 <button
   type="button"
   class="w-full overflow-clip h-screen block relative"
   {disabled}
+  onpointerdown={(e) => {
+    if (disabled) return;
+    touched = true;
+    touchY = e.clientY;
+  }}
+  onpointermove={(e) => {
+    if (disabled || !touched) return;
+    const newPos = [e.clientX, e.clientY];
+    const deltaY = newPos[1] - touchY;
+    if (deltaY < -50) {
+      if (currentTab < TABS.length - 1) {
+        currentTab += 1;
+        direction = "down";
+        disabled = true;
+        setTimeout(() => {
+          disabled = false;
+        }, 1000); // Re-enable after a delay
+      }
+      touched = false;
+    } else if (deltaY > 50) {
+      if (currentTab > 0) {
+        currentTab -= 1;
+        direction = "up";
+        disabled = true;
+        setTimeout(() => {
+          disabled = false;
+        }, 1000); // Re-enable after a delay
+      }
+      touched = false;
+    }
+  }}
+  onpointerup={(e) => {
+    touched = false;
+  }}
   onwheel={(e) => {
     // Prevent scrolling when the button is clicked
     if (disabled) return;
-    console.log("Wheel event:", e);
     if (e.deltaY < 0) {
       if (currentTab > 0) {
         currentTab -= 1;
