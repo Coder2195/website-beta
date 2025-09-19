@@ -21,7 +21,7 @@
 
 <button
   type="button"
-  class="w-full overflow-clip h-[100dvh] block relative"
+  class="w-full overflow-clip h-[100dvh] block relative touch-none"
   {disabled}
   onpointerdown={(e) => {
     if (disabled) return;
