@@ -40,6 +40,6 @@
   <span
     class="border-mocha-mauve bg-mocha-mantle rounded-lg border-4 p-2 font-mono text-5xl"
   >
-    {text}<span class="animate-blink -mx-3">|</span>
+    {text}<span class="animate-blink -mx-3" role="presentation">|</span>
   </span>
 </h1>

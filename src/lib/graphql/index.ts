@@ -33,7 +33,7 @@ export const GET_PROJECT = graphql(`
       excerpt
       updatedAt
       description {
-        markdown
+        html
       }
       embed
       link

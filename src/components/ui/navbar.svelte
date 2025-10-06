@@ -2,7 +2,6 @@
   import { NAV_LINKS } from "$lib/links";
   import { type LoadStatus } from "$lib/types";
   import Icon from "@iconify/svelte";
-  import { Image } from "@unpic/svelte/base";
   import { getContext } from "svelte";
   import { fade, scale } from "svelte/transition";
   import icon from "$assets/icon.png";
@@ -33,7 +32,7 @@
         srcset={optimize(icon)}
         width={40}
         height={40}
-        alt=""
+        alt="Homepage"
         class="w-10 h-10 rounded-md bordered"
       />
     </a>
@@ -41,6 +40,7 @@
       {#each NAV_LINKS as link, idx}
         <a
           href={link.href}
+          aria-label={link.name}
           class="flex gap-1 justify-end items-center button bg-transparent p-1 m-1 rounded-md {(pathname ==
             '/' &&
             link.href == '/') ||

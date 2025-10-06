@@ -37,7 +37,11 @@
   });
 </script>
 
-<a href={social.url} class="hover:scale-125 transition-all duration-300">
+<a
+  href={social.url}
+  class="hover:scale-125 transition-all duration-300"
+  aria-label={social.name}
+>
   <div
     class="{show
       ? 'opacity-100'

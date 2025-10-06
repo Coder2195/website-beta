@@ -1,8 +1,9 @@
 <script lang="ts">
   import { optimize } from "$lib/image";
-  import { fly, slide, scale } from "svelte/transition";
+  import { scale } from "svelte/transition";
   import amber_cover from "$assets/amber_cover.png";
-  import { circOut, elasticOut, sineIn } from "svelte/easing";
+  import { circOut, elasticOut } from "svelte/easing";
+  import Section from "./section.svelte";
 
   let { direction }: { direction: "up" | "down" } = $props();
 
@@ -14,15 +15,7 @@
   }, 100);
 </script>
 
-<div
-  class="h-[100dvh] flex-col pt-20 w-full"
-  in:fly={direction == "down"
-    ? { duration: 500, delay: 600, y: 200, opacity: 0 }
-    : { duration: 500, delay: 600, y: -200, opacity: 0 }}
-  out:fly={direction == "down"
-    ? { duration: 500, delay: 100, y: -200, opacity: 0 }
-    : { duration: 500, delay: 100, y: 200, opacity: 0 }}
->
+<Section {direction}>
   <img
     srcset={optimize(amber_cover)}
     alt=""
@@ -91,4 +84,4 @@
       </span>
     </h1>
   {/if}
-</div>
+</Section>
