@@ -1,7 +1,7 @@
 import { dev } from "$app/environment";
 
 export function optimize(src: string, widths = [640, 960, 1280], quality = 90) {
-  if (dev) return src;
+  if (dev || src.endsWith(".svg")) return src;
 
   return widths
     .slice()

@@ -64,10 +64,10 @@
     e.preventDefault();
     const newPos = [e.clientX, e.clientY];
     const deltaY = newPos[1] - touchY;
-    if (deltaY < -50) {
+    if (deltaY < -10) {
       scrollDown();
       touched = false;
-    } else if (deltaY > 50) {
+    } else if (deltaY > 10) {
       scrollUp();
       touched = false;
     }
