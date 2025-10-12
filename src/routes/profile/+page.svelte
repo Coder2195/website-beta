@@ -1,12 +1,13 @@
 <script lang="ts">
   import Cover from "@/components/profile/cover.svelte";
   import Details from "@/components/profile/details.svelte";
+  import Skills from "@/components/profile/skills.svelte";
   import type { Component } from "svelte";
 
   const TABS = [
     ["cover", Cover],
     ["cover2", Details],
-    ["cover3", Details],
+    ["cover3", Skills],
     ["cover4", Details],
     ["cover5", Details],
     // Add other tabs here as needed
@@ -17,6 +18,28 @@
 
   let touched = $state(false);
   let touchY = 0;
+
+  function scrollUp() {
+    if (currentTab > 0) {
+      currentTab -= 1;
+      direction = "up";
+      disabled = true;
+      setTimeout(() => {
+        disabled = false;
+      }, 2000); // Re-enable after a delay
+    }
+  }
+
+  function scrollDown() {
+    if (currentTab < TABS.length - 1) {
+      currentTab += 1;
+      direction = "down";
+      disabled = true;
+      setTimeout(() => {
+        disabled = false;
+      }, 2000); // Re-enable after a delay
+    }
+  }
 </script>
 
 <button
@@ -28,30 +51,24 @@
     touched = true;
     touchY = e.clientY;
   }}
+  onkeypress={(e) => {
+    if (disabled) return;
+    if (e.key === "ArrowUp") {
+      scrollUp();
+    } else if (e.key === "ArrowDown") {
+      scrollDown();
+    }
+  }}
   onpointermove={(e) => {
     if (disabled || !touched) return;
     e.preventDefault();
     const newPos = [e.clientX, e.clientY];
     const deltaY = newPos[1] - touchY;
     if (deltaY < -50) {
-      if (currentTab < TABS.length - 1) {
-        currentTab += 1;
-        direction = "down";
-        disabled = true;
-        setTimeout(() => {
-          disabled = false;
-        }, 1000); // Re-enable after a delay
-      }
+      scrollDown();
       touched = false;
     } else if (deltaY > 50) {
-      if (currentTab > 0) {
-        currentTab -= 1;
-        direction = "up";
-        disabled = true;
-        setTimeout(() => {
-          disabled = false;
-        }, 1000); // Re-enable after a delay
-      }
+      scrollUp();
       touched = false;
     }
   }}
@@ -63,22 +80,10 @@
     if (disabled) return;
     if (e.deltaY < 0) {
       if (currentTab > 0) {
-        currentTab -= 1;
-        direction = "up";
-        disabled = true;
-        setTimeout(() => {
-          disabled = false;
-        }, 1000); // Re-enable after a delay
+        scrollUp();
       }
     } else {
-      if (currentTab < TABS.length - 1) {
-        currentTab += 1;
-        direction = "down";
-        disabled = true;
-        setTimeout(() => {
-          disabled = false;
-        }, 1000); // Re-enable after a delay
-      }
+      scrollDown();
     }
   }}
   onclick={() => {

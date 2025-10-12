@@ -1,7 +1,6 @@
 <script lang="ts">
   import { optimize } from "$lib/image";
   import { scale } from "svelte/transition";
-  import amber_cover from "$assets/amber_cover.png";
   import { circOut, elasticOut } from "svelte/easing";
   import Section from "./section.svelte";
 
@@ -17,7 +16,7 @@
 
 <Section {direction}>
   <img
-    srcset={optimize(amber_cover)}
+    srcset={optimize("/pictures/amber-cover.png")}
     alt=""
     width="1920"
     height="1080"

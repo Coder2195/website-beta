@@ -26,7 +26,6 @@ const config = {
     }),
     alias: {
       "@/*": "./src/*",
-      "$assets/*": "./src/assets/*",
     },
   },
   runes: true,
