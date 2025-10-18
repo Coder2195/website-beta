@@ -135,7 +135,7 @@
 </script>
 
 <Section {direction}>
-  <h1>Experience</h1>
+  <h1>Skills</h1>
   <div class="grow flex items-end justify-center flex-wrap">
     I included everything that was part of my journey...
   </div>

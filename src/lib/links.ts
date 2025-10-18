@@ -46,7 +46,7 @@ export type Social = {
 export const SOCIAL_LINKS: Social[] = [
   {
     name: "GitHub",
-    url: "https://github.com/coder2195text/",
+    url: "https://github.com/coder2195/",
     icon: "fa:github",
   },
   {
