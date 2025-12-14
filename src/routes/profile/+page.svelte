@@ -2,13 +2,14 @@
   import Cover from "@/components/profile/cover.svelte";
   import Details from "@/components/profile/details.svelte";
   import Skills from "@/components/profile/skills.svelte";
+  import Timeline from "@/components/profile/timeline.svelte";
   import type { Component } from "svelte";
 
   const TABS = [
     ["cover", Cover],
     ["cover2", Details],
     ["cover3", Skills],
-    ["cover4", Details],
+    ["cover4", Timeline],
     ["cover5", Details],
     // Add other tabs here as needed
   ] as const;
